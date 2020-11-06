@@ -1,14 +1,13 @@
-- name: Check Serial
-  shell: sed -n 3p /etc/bind/capes.gov.br.hosts
-  register: result
-  ignore_errors: yes
-- debug: msg="{{ result.stdout }}"
-
 - name: COPIAR
   copy:
     src: /etc/bind/capes.gov.br.hosts
     dest: /root/ansible-dns/roles/alter_dns/templates/capes.gov.br.hosts.j2
 
+- name: Check Serial
+  shell: sed -n 3p /etc/bind/capes.gov.br.hosts
+  register: result
+  ignore_errors: yes
+- debug: msg="{{ result.stdout }}"
 
 - lineinfile:
     path: /root/ansible-dns/roles/alter_dns/templates/capes.gov.br.hosts.j2
