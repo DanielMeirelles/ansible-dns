@@ -4,6 +4,12 @@
   ignore_errors: yes
 - debug: msg="{{ result.stdout }}"
 
+- name: Backup a file /etc/nginx
+  command: mv /etc/bind/capes.gov.br.hosts /etc/nginx_original
+  args:
+    warn: false
+
+
 - lineinfile:
     path: /etc/bind/capes.gov.br.hosts
     state: present
