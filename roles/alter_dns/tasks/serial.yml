@@ -10,5 +10,4 @@
     #insertbefore: '^www.*80/tcp'
     #line: '# port for http by default'
     register: result
-    ignore_errors: yes
 - debug: msg="{{ result.stdout }}"
