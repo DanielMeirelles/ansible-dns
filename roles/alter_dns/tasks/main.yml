@@ -1,2 +1,4 @@
 ---
 # tasks file for alter_dns
+- name: check serial
+  include_tasks: "serial.yml"

@@ -1,0 +1,5 @@
+- name: Check Serial
+  shell: sed -n 3p /etc/bind/capes.gov.br.hosts
+  register: result
+  ignore_errors: yes
+- debug: msg="{{ result.stdout }}"
