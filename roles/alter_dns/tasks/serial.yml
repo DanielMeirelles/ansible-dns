@@ -9,6 +9,6 @@
     state: present
     regexp: '^\t\t\t2020'
     #insertbefore: '^www.*80/tcp'
-    line: "{{ result.stdout +1}}"
+    line: "{{ result.stdout | int +1}}"
     register: result
 - debug: msg="{{ result.stdout }}"
