@@ -3,3 +3,12 @@
   register: result
   ignore_errors: yes
 - debug: msg="{{ result.stdout }}"
+
+- lineinfile:
+    path: /etc/bind/capes.gov.br.hosts
+    regexp: '^\t\t\t2020'
+    #insertbefore: '^www.*80/tcp'
+    #line: '# port for http by default'
+    register: result
+    ignore_errors: yes
+- debug: msg="{{ result.stdout }}"
