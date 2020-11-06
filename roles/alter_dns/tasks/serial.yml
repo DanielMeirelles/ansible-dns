@@ -4,10 +4,9 @@
   ignore_errors: yes
 - debug: msg="{{ result.stdout }}"
 
-- name: Backup a file /etc/nginx
-  command: mv /etc/bind/capes.gov.br.hosts /etc/nginx_original
-  args:
-    warn: false
+  copy:
+    src: /etc/bind/capes.gov.br.hosts
+    dest: /root/ansible-dns/roles/alter_dns/templates/capes.gov.br.hosts.j2
 
 
 - lineinfile:
