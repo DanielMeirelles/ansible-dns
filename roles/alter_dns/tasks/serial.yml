@@ -6,8 +6,9 @@
 
 - lineinfile:
     path: /etc/bind/capes.gov.br.hosts
+    state: present
     regexp: '^\t\t\t2020'
     #insertbefore: '^www.*80/tcp'
-    #line: '# port for http by default'
+    line: "{{ result.stdout +1}}"
     register: result
 - debug: msg="{{ result.stdout }}"
