@@ -1,24 +1,6 @@
 - hosts: localhost 
- 
-  tasks:
-  - name: PROCURA - svc-new
-    find:
-      paths: /mnt
-      get_checksum: yes
-      file_type: any
-      patterns: '*svc-new*'
+  gather_facts: true 
 
-    register: output
-  - debug: var=item.path
-    with_items: "{{ output.files }}"
+  roles:
+    - alter-dns
 
-  - name: PROCURA - notepad.exe
-    find:
-      paths: /mnt
-      get_checksum: yes
-      file_type: any
-      patterns: notepad.exe
-
-    register: output
-  - debug: var=item.path
-    with_items: "{{ output.files }}"
